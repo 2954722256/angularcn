@@ -1,10 +1,23 @@
-/**/
-/*:host {*/
-  /*display: block;*/
-  /*margin: 10px 0;*/
-  /*background: #eee;*/
-/*}*/
+/*直接是无效的*/
+/*.card {*/
+  /*padding: 10px;*/
+  /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);*/
+  /*margin: 10px 0; }*/
 
+/*host表示当前组件*/
+:host {
+  display: block;
+  margin: 10px 0;
+  background: #eee; }
+
+/*可以添加 状态， 当前组件状态*/
 :host(.active) {
-  background: red;
-}
+  background: red; }
+
+/*添加 主题， 在 对应class 下面*/
+:host-context(.theme-blue) {
+  color: blue; }
+
+/deep/ .card-header {
+  font-size: 125px; }
+
