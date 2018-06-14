@@ -1,0 +1,8 @@
+- https://www.angular.cn/guide/rx-library
+---
+- rxjs是 流式编程
+    - 基于
+        - 组合异步
+        - 回调
+- Observable 创建函数
+    -
