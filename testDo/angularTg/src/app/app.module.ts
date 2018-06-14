@@ -8,6 +8,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { DemoComponentComponent } from './demo/demo-component/demo-component.component';
 import { DemoStyleComponent } from './demo/demo-style/demo-style.component';
 import { DemoBindComponent } from './demo/demo-bind/demo-bind.component';
+import { DemoInputComponent } from './demo/demo-input/demo-input.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DemoBindComponent } from './demo/demo-bind/demo-bind.component';
     CardHeaderComponent,
     DemoComponentComponent,
     DemoStyleComponent,
-    DemoBindComponent
+    DemoBindComponent,
+    DemoInputComponent
   ],
   imports: [
     BrowserModule,
