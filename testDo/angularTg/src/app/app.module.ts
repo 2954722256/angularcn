@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CardComponent } from './component/card/card.component';
 import { CardHeaderComponent } from './component/card-header/card-header.component';
+import { AppRoutingModule } from './routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CardHeaderComponent } from './component/card-header/card-header.compone
     CardHeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
