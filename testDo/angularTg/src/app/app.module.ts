@@ -7,6 +7,7 @@ import { CardHeaderComponent } from './component/card-header/card-header.compone
 import { AppRoutingModule } from './routing/app-routing.module';
 import { DemoComponentComponent } from './demo/demo-component/demo-component.component';
 import { DemoStyleComponent } from './demo/demo-style/demo-style.component';
+import { DemoBindComponent } from './demo/demo-bind/demo-bind.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DemoStyleComponent } from './demo/demo-style/demo-style.component';
     CardComponent,
     CardHeaderComponent,
     DemoComponentComponent,
-    DemoStyleComponent
+    DemoStyleComponent,
+    DemoBindComponent
   ],
   imports: [
     BrowserModule,
