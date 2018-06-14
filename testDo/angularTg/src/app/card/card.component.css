@@ -1,0 +1,10 @@
+/**/
+/*:host {*/
+  /*display: block;*/
+  /*margin: 10px 0;*/
+  /*background: #eee;*/
+/*}*/
+
+:host(.active) {
+  background: red;
+}
