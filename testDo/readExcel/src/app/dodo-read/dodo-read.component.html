@@ -1,0 +1,22 @@
+<p>
+  用 xls库 ，读取 .xls!
+</p>
+
+<input type="file" (change)="fileChange($event)" placeholder="选择上传文件" accept=".ods,.xls,.xlsx">
+
+<table>
+  <thead>
+  <tr>
+    <th *ngFor="let item of headers" >
+      {{item}}
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let line of xlsxData" >
+    <td *ngFor="let col of headers" >
+      {{line[col]}}
+    </td>
+  </tr>
+  </tbody>
+</table>
