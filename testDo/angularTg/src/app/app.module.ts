@@ -9,6 +9,7 @@ import { DemoComponentComponent } from './demo/demo-component/demo-component.com
 import { DemoStyleComponent } from './demo/demo-style/demo-style.component';
 import { DemoBindComponent } from './demo/demo-bind/demo-bind.component';
 import { DemoInputComponent } from './demo/demo-input/demo-input.component';
+import { CardFooterComponent } from './component/card-footer/card-footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DemoInputComponent } from './demo/demo-input/demo-input.component';
     DemoComponentComponent,
     DemoStyleComponent,
     DemoBindComponent,
-    DemoInputComponent
+    DemoInputComponent,
+    CardFooterComponent
   ],
   imports: [
     BrowserModule,

@@ -11,5 +11,8 @@ export class DemoInputComponent implements OnInit {
 
   ngOnInit() {
   }
+  onChange(event: any) {
+    alert(event);
+  }
 
 }
