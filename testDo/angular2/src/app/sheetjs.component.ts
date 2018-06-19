@@ -8,17 +8,7 @@ type AOA = any[][];
 
 @Component({
 	selector: 'sheetjs',
-	template: `
-	<input type="file" (change)="onFileChange($event)" multiple="false" />
-	<table class="sjs-table">
-		<tr *ngFor="let row of data">
-			<td *ngFor="let val of row">
-				{{val}}
-			</td>
-		</tr>
-	</table>
-	<button (click)="export()">Export!</button>
-	`
+    templateUrl: './sheetjs.component.html'
 })
 
 export class SheetJSComponent {
@@ -27,26 +17,46 @@ export class SheetJSComponent {
 	fileName: string = 'SheetJS.xlsx';
 
 	onFileChange(evt: any) {
-		/* wire up file reader */
-		const target: DataTransfer = <DataTransfer>(evt.target);
-		if (target.files.length !== 1) throw new Error('Cannot use multiple files');
-		const reader: FileReader = new FileReader();
-		reader.onload = (e: any) => {
-			/* read workbook */
-			const bstr: string = e.target.result;
-			const wb: XLSX.WorkBook = XLSX.read(bstr, {type: 'binary'});
-
-			/* grab first sheet */
-			const wsname: string = wb.SheetNames[0];
-			const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
-			/* save data */
-			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
-		};
-		reader.readAsBinaryString(target.files[0]);
+		this.import01AllFile(evt);
 	}
 
+
+	import01AllFile(evt: any){
+        /* wire up file reader */
+        const target: DataTransfer = <DataTransfer>(evt.target);
+        if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+        const reader: FileReader = new FileReader();
+        reader.onload = (e: any) => {
+            /* 读取整个excel 		：	read workbook */
+            const bstr: string = e.target.result;
+            const wb: XLSX.WorkBook = XLSX.read(bstr, {type: 'binary'});
+
+            /* 拿到第一页sheet   ： grab first sheet */
+            const wsname: string = wb.SheetNames[0];
+            const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+            /* save data */
+            this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
+        };
+        reader.readAsBinaryString(target.files[0]);
+	}
+
+
+	
+
+
+
+
+
+
+
+
+
 	export(): void {
+		this.export01AllFile();
+	}
+
+	export01AllFile(){
 		/* generate worksheet */
 		const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(this.data);
 
@@ -57,4 +67,5 @@ export class SheetJSComponent {
 		/* save to file */
 		XLSX.writeFile(wb, this.fileName);
 	}
+
 }
